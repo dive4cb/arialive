@@ -20,6 +20,7 @@
 <body>
 
     <h1>Aria Live Regions</h1>
+    <div id="getfocus" tabindex="-1">Get Focus</div>
     <div aria-live="assertive" aria-relevant="text" id="divala">
         <button id="butasser">Select Product Assertively</button>
     </div>
@@ -71,16 +72,17 @@
 
             $("#butasser").click(function () {
                 //                    $(this).text("Product Selected Assertively");
-                this.blur();
+               this.blur();
+
                 $(this).text(function (i, text) {
                     return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
                 });
 
 
 
-//                setTimeout(function () {
-//                    $("#butasser").focus();
-//                }, 5000)
+                setTimeout(function () {
+                                    $("#getfocus").focus();
+                }, 5000)
 
 
 
