@@ -7,23 +7,44 @@
     <meta charset="utf-8">
 
     <style>
-
+        .disinline {
+            display: inline;
+        }
+        
+        .disnone {
+            display: none;
+        }
+        .butstyle {
+            color: #fff;
+            background-color: green;
+        }
     </style>
 </head>
 
 <body>
 
     <h1>Aria Live Regions</h1>
-    <div aria-live="assertive" aria-relevant="text" id="divala"><button id="butasser">Select Product Assertively</button></div>
-    <div aria-live="polite" aria-relevant="text" id="divalp"><button id="butpolit">Select Product Politely</button></div>
-<!--    <div role="alert" aria-relevant="text">an area of role alert in source</div>-->
+    <div aria-live="assertive" aria-relevant="text" id="divala">
+        <button id="butasser">
+            <span class="disinline">Select Product Assertively</span>
+            <span class="disnone">Product Selected Assertively</span>
+
+
+        </button>
+    </div>
+    <div aria-live="polite" aria-relevant="text" id="divalp">
+        <button id="butpolit">            
+            <span class="disinline">Select Product Politely</span>
+            <span class="disnone">Product Selected Politely</span></button>
+    </div>
+    <!--    <div role="alert" aria-relevant="text">an area of role alert in source</div>-->
     <div>
-        
-<!--        <span aria-live="assertive" id="ala"></span>-->
+
+        <!--        <span aria-live="assertive" id="ala"></span>-->
     </div>
     <div>
-        
-<!--        <span aria-live="polite" id="alp"></span>-->
+
+        <!--        <span aria-live="polite" id="alp"></span>-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -45,12 +66,13 @@
             //            $(".clickme").blur(function () {
             //                $(this).removeAttr("aria-selected");
             //            });
-            $("#butasser").click(function () {
-                $("#divala button").text("Product Selected Assertively");
+            $("button").click(function () {
+                    $(this).children("span").toggleClass("disinline disnone");
+                $(this).toggleClass("butstyle");
             });
-            $("#butpolit").click(function () {
-                $("#divalp button").text("Product Selected Politely");
-            });
+//            $("#butpolit").click(function () {
+//                $("#divalp button span").toggleClass("disinline disnone");
+//            });
             //            $("#tablist").focus(function () {
             //                $(this).on("keydown.tablist", function (e) {
             //                    var code = e.which;
