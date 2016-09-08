@@ -14,8 +14,9 @@
 <body>
 
     <h1>Aria Live Regions</h1>
-    <div aria-live="assertive">an area of aria live assertive in source</div>
-    <div aria-live="polite">an area of aria live polite in source</div>
+    <div aria-live="assertive" aria-relevant="text">an area of aria live assertive in source</div>
+    <div aria-live="polite" aria-relevant="text">an area of aria live polite in source</div>
+    <div role="alert">an area of role alert in source</div>
     <div>
         <button id="butasser">Inject Text Into Aria Live Assertive</button>
         <span aria-live="assertive" id="ala"></span>
