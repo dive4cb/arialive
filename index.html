@@ -5,7 +5,7 @@
     <title>Aria Live Regions</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         .disinline {
             display: inline;
@@ -14,142 +14,35 @@
         .disnone {
             display: none;
         }
+        div {
+            margin: 1em 0;
+        }
     </style>
 </head>
 
 <body>
 
     <h1>Aria Live Regions</h1>
-    <div id="getfocus" tabindex="-1">Get Focus</div>
-    <div aria-live="assertive" aria-relevant="text" id="divala">
-        <button id="butasser">Select Product Assertively</button>
+    <div aria-live="assertive" aria-atomic="true" aria-relevant="text" id="divala">
+        <button class="btn btn-select" id="butasser">
+            <span class="disinline">Select Product Assertively</span>
+            <span class="disnone">Product Selected Assertively</span>
+        </button>
     </div>
-    <div aria-live="polite" aria-relevant="text" id="divalp">
-        <button id="butpolit">Select Product Politely</button>
+    <div aria-live="polite" aria-atomic="true" aria-relevant="text" id="divalp">
+        <button class="btn btn-select" id="butpolit">
+            <span class="disinline">Select Product Politely</span>
+            <span class="disnone">Product Selected Politely</span>
+        </button>
     </div>
-    <!--    <div role="alert" aria-relevant="text">an area of role alert in source</div>-->
-    <div>
 
-        <!--        <span aria-live="assertive" id="ala"></span>-->
-    </div>
-    <div>
-
-        <!--        <span aria-live="polite" id="alp"></span>-->
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            //            $(".clickme").each(function () {
-            //                var n = $(this).attr("id");
-            //                var n2 = $(this).next("p.moreinfo").attr("id");
-            //                $(this).next("p.moreinfo").attr("aria-labelledby", n);
-            //                $(this).attr("aria-controls", n2);
-            //            });
-
-            //            $(".moreinfo").css("display", "none").attr("role", "tabpanel").attr("aria-hidden", "true");
-            //            $(".clickme").attr("aria-expanded", "false").attr("role", "tab").attr("tabindex", "-1");
-            //            $("#tablist").attr("role", "tablist").attr("tabindex", "0");
-            //            $("#tablist").attr("aria-multiselectable", "true");
-            //            $(".clickme").focus(function () {
-            //                $(this).attr("aria-selected", "true");
-            //            });
-            //            $(".clickme").blur(function () {
-            //                $(this).removeAttr("aria-selected");
-            //            });
-
-
-            //            $(function(){
-            //   $(".pushme").click(function () {
-            //      $(this).text(function(i, text){
-            //          return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
-            //      })
-            //   });
-            //})
-
-
-
-
-
-            $("#butasser").click(function () {
-                //                    $(this).text("Product Selected Assertively");
-               this.blur();
-
-                $(this).text(function (i, text) {
-                    return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
-                });
-
-
-
-                setTimeout(function () {
-                                    $("#getfocus").focus();
-                }, 5000)
-
-
-
-
+            $("button").click(function () {
+                $(this).children("span").toggleClass("disinline disnone");
+                $(this).toggleClass("selected");
             });
-            $("#butpolit").click(function () {
-                // $(this).text("Product Selected Politely");
-                $(this).text(function (i, text) {
-                    return text === "Product Selected Politely" ? "Select Product Politely" : "Product Selected Politely";
-                })
-            });
-            //            $("#tablist").focus(function () {
-            //                $(this).on("keydown.tablist", function (e) {
-            //                    var code = e.which;
-            //                    if (code == 13 || code == 40 || code == 39) e.preventDefault();
-            //                    if (code == 13 || code == 40 || code == 39) {
-            //                        $(this).children("h2.clickme:first").focus();
-            //                        $(this).off("keydown.tablist");
-            //                    };
-            //                });
-            //            });
-
-            //            $("#tablist").focusin(function () {
-            //                $(this).on("keydown.esc", function (e) {
-            //                    var code = e.which;
-            //                    if (code == 27) e.preventDefault();
-            //                    if (code == 27) {
-            //                        $(".moreinfo").css("display", "none").attr("aria-hidden", "true");
-            //                        $(".clickme").attr("aria-expanded", "false");
-            //                        $(".clickme").children("span").attr("class", "plus");
-            //
-            //                        $(this).focus();
-            //                        $(this).off("keydown.esc");
-            //                    };
-            //                });
-            //            });
-
-            //            $(".moreinfo *").focus(function () {
-            //                $(this).on("keydown.moreinfo", function (e) {
-            //                    var code = e.which;
-            //                    if (code == 38 || code == 37 || code == 40 || code == 39) e.preventDefault();
-            //                    if (code == 40 || code == 39) {
-            //                        //   console.log(code);
-            //                        $(this).parent().next("h2.clickme").focus();
-            //                        $(this).off("keydown.moreinfo");
-            //                    };
-            //                    if (code == 38 || code == 37) {
-            //                        //  console.log(code);
-            //                        $(this).parent().prev("h2.clickme").focus();
-            //                        $(this).off("keydown.moreinfo");
-            //                    };
-            //                });
-            //            });
-            //
-            //            $(".clickme").keydown(function (e) {
-            //                var code = e.which;
-            //                if (code == 32 || code == 13 || code == 38 || code == 37 || code == 40 || code == 39) e.preventDefault();
-            //                if (code == 32 || code == 13) {
-            //                    $(this).click();
-            //                };
-            //                if (code == 38 || code == 37) {
-            //                    $(this).prevAll("h2.clickme:first").focus();
-            //                };
-            //                if (code == 40 || code == 39) {
-            //                    $(this).nextAll("h2.clickme:first").focus();
-            //                };
-            //            });
         });
     </script>
 
