@@ -20,19 +20,11 @@
 <body>
 
     <h1>Aria Live Regions</h1>
-    <div aria-live="assertive" aria-atomic="true" aria-relevant="text" id="divala">
-        <button id="butasser">
-            <span class="disinline">Select Product Assertively</span>
-            <span class="disnone">Product Selected Assertively</span>
-
-
-        </button>
+    <div aria-live="assertive" aria-relevant="text" id="divala">
+        <button id="butasser">Select Product Assertively</button>
     </div>
     <div aria-live="polite" aria-atomic="true" aria-relevant="text" id="divalp">
-        <button id="butpolit">            
-            <span class="disinline">Select Product Politely</span>
-            <span class="disnone">Product Selected Politely</span>
-        </button>
+        <button id="butpolit">Select Product Politely</button>
     </div>
     <!--    <div role="alert" aria-relevant="text">an area of role alert in source</div>-->
     <div>
@@ -63,12 +55,32 @@
             //            $(".clickme").blur(function () {
             //                $(this).removeAttr("aria-selected");
             //            });
-            $("button").click(function () {
-                    $(this).children("span").toggleClass("disinline disnone");
+
+
+            //            $(function(){
+            //   $(".pushme").click(function () {
+            //      $(this).text(function(i, text){
+            //          return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
+            //      })
+            //   });
+            //})
+
+
+
+
+
+            $("#butasser").click(function () {
+                //                    $(this).text("Product Selected Assertively");
+                $(this).text(function (i, text) {
+                    return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
+                })
             });
-//            $("#butpolit").click(function () {
-//                $("#divalp button span").toggleClass("disinline disnone");
-//            });
+            $("#butpolit").click(function () {
+                // $(this).text("Product Selected Politely");
+                $(this).text(function (i, text) {
+                    return text === "Product Selected Politely" ? "Select Product Politely" : "Product Selected Politely";
+                })
+            });
             //            $("#tablist").focus(function () {
             //                $(this).on("keydown.tablist", function (e) {
             //                    var code = e.which;
