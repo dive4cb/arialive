@@ -73,8 +73,8 @@
             $("#butasser").click(function () {
                 //                    $(this).text("Product Selected Assertively");
 
-                $(this).html(function (i, html) {
-                    return html === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
+                $("#divala").html(function (i, html) {
+                    return html === "<button id='butasser'>Product Selected Assertively</button>" ? "<button id='butasser'>Select Product Assertively</button>" : "<button id='butasser'>Product Selected Assertively</button>";
                 });
 
 //
