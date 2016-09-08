@@ -75,7 +75,16 @@
                 $(this).text(function (i, text) {
                     return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
                 });
-                this.focus();
+
+
+
+                setTimeout(function () {
+                    $("#butasser").focus();
+                }, 5000)
+
+
+
+
             });
             $("#butpolit").click(function () {
                 // $(this).text("Product Selected Politely");
