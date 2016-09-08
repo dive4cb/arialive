@@ -14,16 +14,16 @@
 <body>
 
     <h1>Aria Live Regions</h1>
-    <div aria-live="assertive" aria-relevant="text">an area of aria live assertive in source</div>
-    <div aria-live="polite" aria-relevant="text">an area of aria live polite in source</div>
+    <div aria-live="assertive" aria-relevant="text" id="divala">an area of aria live assertive in source</div>
+    <div aria-live="polite" aria-relevant="text" id="divalp">an area of aria live polite in source</div>
     <div role="alert" aria-relevant="text">an area of role alert in source</div>
     <div>
         <button id="butasser">Inject Text Into Aria Live Assertive</button>
-        <span aria-live="assertive" id="ala"></span>
+<!--        <span aria-live="assertive" id="ala"></span>-->
     </div>
     <div>
         <button id="butpolit">Inject Text Into Aria Live Polite</button>
-        <span aria-live="polite" id="alp"></span>
+<!--        <span aria-live="polite" id="alp"></span>-->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -46,10 +46,10 @@
             //                $(this).removeAttr("aria-selected");
             //            });
             $("#butasser").click(function () {
-                $("#ala").text("dynamically injected assertive text");
+                $("#divala").text("dynamically injected assertive text");
             });
             $("#butpolit").click(function () {
-                $("#alp").text("dynamically injected polite text");
+                $("#divalp").text("dynamically injected polite text");
             });
             //            $("#tablist").focus(function () {
             //                $(this).on("keydown.tablist", function (e) {
