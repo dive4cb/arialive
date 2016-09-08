@@ -72,17 +72,16 @@
 
             $("#butasser").click(function () {
                 //                    $(this).text("Product Selected Assertively");
-               this.blur();
 
-                $(this).text(function (i, text) {
-                    return text === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
+                $(this).html(function (i, html) {
+                    return html === "Product Selected Assertively" ? "Select Product Assertively" : "Product Selected Assertively";
                 });
 
-
-
-                setTimeout(function () {
-                                    $("#getfocus").focus();
-                }, 5000)
+//
+//
+//                setTimeout(function () {
+//                                    $("#getfocus").focus();
+//                }, 5000)
 
 
 
