@@ -57,6 +57,7 @@
             $("button.btn").click(function () {
 //                $(this).children("span").toggleClass("disinline disnone");
                 $(this).toggleClass("selected");
+                $(this).parent("div").attr("aria-live", "assertive");
             });
 
             $("button#butinj").click(function () {
