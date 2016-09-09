@@ -51,13 +51,19 @@
         </button>
     </div>
 
+    <div aria-live="polite" aria-atomic="true" aria-relevant="text" id="divinject">
+        <button id="btnfake">
+            Fake Button
+        </button>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("button.btn").click(function () {
-//                $(this).children("span").toggleClass("disinline disnone");
+                //                $(this).children("span").toggleClass("disinline disnone");
                 $(this).toggleClass("selected");
-//                $(this).parent("div").attr("aria-live", "assertive");
+                //                $(this).parent("div").attr("aria-live", "assertive");
             });
 
             $("button#butinj").click(function () {
