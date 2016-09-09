@@ -11,8 +11,16 @@
             display: inline;
         }
         
+        .selected .disinline {
+            display: none;
+        }
+        
         .disnone {
             display: none;
+        }
+        
+        .selected .disnone {
+            display: inline;
         }
         
         div {
@@ -47,7 +55,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("button.btn").click(function () {
-                $(this).children("span").toggleClass("disinline disnone");
+//                $(this).children("span").toggleClass("disinline disnone");
                 $(this).toggleClass("selected");
             });
 
